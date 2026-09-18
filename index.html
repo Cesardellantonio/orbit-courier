@@ -4,26 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#080d1c">
-  <title>Orbit Courier · Night shift</title>
+  <title>Orbit Courier v2 · Night shift</title>
   <link rel="stylesheet" href="style.css">
   <script src="engine.js" defer></script>
   <script src="main.js" defer></script>
 </head>
 <body>
   <main class="desk">
-    <header class="masthead"><div><p class="eyebrow">INTERSTELLAR POST / 01</p><h1>ORBIT <span>COURIER</span></h1></div><span class="badge">NIGHT SHIFT</span></header>
+    <header class="masthead"><div><p class="eyebrow">INTERSTELLAR POST / 02</p><h1>ORBIT <span>COURIER</span></h1></div><span class="badge">V2 / NIGHT SHIFT</span></header>
     <section class="hud" aria-label="Flight dashboard">
       <div><span class="label">SCORE</span><strong id="score">0</strong></div>
       <div><span class="label">SHIELDS</span><strong id="lives">3 / 3</strong></div>
       <div><span class="label">DELIVER TO</span><strong id="target">NOVA</strong></div>
     </section>
+    <section class="telemetry" aria-label="Combo and difficulty">
+      <div class="combo-panel"><span class="label">DELIVERY COMBO</span><strong id="combo">×1 · 0 streak</strong><div class="meter combo-meter" role="progressbar" aria-label="Streak toward maximum combo" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0"><i id="combo-fill"></i></div></div>
+      <div class="level-panel"><span class="label">LEVEL <strong id="level">1</strong></span><span id="level-progress">3 TO NEXT</span></div>
+    </section>
     <div class="arena">
-      <canvas id="space" width="360" height="480" aria-label="Five orbiting hubs. Tap toward the gold destination, or swipe from the cyan source." aria-describedby="instructions">Your browser needs canvas support to play Orbit Courier.</canvas>
+      <canvas id="space" width="360" height="480" aria-label="Five orbiting hubs. Tap toward gold for a short fling, or drag toward your aim and release. Longer drags boost speed." aria-describedby="instructions">Your browser needs canvas support to play Orbit Courier.</canvas>
       <section id="game-over" class="overlay" hidden aria-labelledby="lost-title" role="dialog" aria-modal="true">
         <div class="result"><p class="eyebrow">TRANSMISSION ENDED</p><h2 id="lost-title">Shift complete.</h2><p>No shields left. The stars will wait.</p><span class="label">FINAL SCORE</span><strong id="final-score">0</strong><button id="restart" type="button">Restart shift <span aria-hidden="true">↗</span></button></div>
       </section>
     </div>
-    <footer><p id="message" role="status" aria-live="polite">Your first delivery is waiting.</p><p id="instructions">Tap to aim & launch · or swipe from the cyan hub</p><div class="legend"><span class="source-key">● SOURCE</span><span class="target-key">◎ DESTINATION</span><span>+100 / DELIVERY</span></div></footer>
+    <section class="flight-controls" aria-label="Launch power and power-up">
+      <div class="power-panel"><span class="label">LAUNCH POWER</span><strong id="power">TAP / SHORT FLING</strong><div class="meter" aria-hidden="true"><i id="power-fill"></i></div></div>
+      <div class="pulse-panel"><button id="pulse" type="button" disabled aria-describedby="pulse-hint">✦ PULSE CHARGING</button><p id="pulse-hint">Next charge in 3 deliveries</p></div>
+    </section>
+    <footer><p id="message" role="status" aria-live="polite">Your first delivery is waiting. Build a streak!</p><p id="instructions">Tap toward gold · or drag toward your aim, release to boost.</p><div class="legend"><span class="source-key">● SOURCE</span><span class="target-key">◎ DESTINATION</span><span>100–400 / DELIVERY</span></div></footer>
     <noscript>Enable JavaScript to start your shift.</noscript>
   </main>
 </body>

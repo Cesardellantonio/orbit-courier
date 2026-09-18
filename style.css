@@ -19,4 +19,28 @@ footer { text-align: center; flex-shrink: 0; } footer p { margin: 0; } #message 
 .overlay { position: absolute; inset: 0; background: #080d1cde; backdrop-filter: blur(7px); display: grid; place-items: center; padding: 16px; } [hidden] { display: none !important; }
 .result { text-align: center; width: min(100%, 310px); } h2 { font-size: 30px; letter-spacing: -.05em; margin: 10px 0; } .result > p:not(.eyebrow) { color: #9eacc4; font-size: 13px; margin-bottom: 22px; } #final-score { display: block; font-size: 46px; color: #ffd582; margin: 4px 0 22px; }
 button { width: 100%; min-height: 48px; border: 0; border-radius: 10px; background: #77e7e5; color: #072026; font: 700 15px inherit; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; } button:active { background: #b2ffff; } button:focus-visible { outline: 3px solid #ffd582; outline-offset: 4px; } button span { margin-left: 12px; }
+.masthead, .hud, .telemetry, .flight-controls { flex-shrink: 0; }
+.telemetry { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 6px; }
+.combo-panel { flex: 1; } #combo { color: #ffd582; font-size: 13px; font-variant-numeric: tabular-nums; }
+.meter { height: 4px; border-radius: 4px; background: #27334b; overflow: hidden; margin-top: 6px; }
+.meter i { display: block; height: 100%; width: 0%; background: #77e7e5; border-radius: inherit; }
+.combo-meter i { background: linear-gradient(90deg, #ffd582, #ff9f7e); transition: width .18s ease-out; }
+.level-panel { text-align: right; } #level { color: #c6b6ff; font-size: 21px; margin-left: 5px; }
+#level-progress { font-size: 8px; letter-spacing: .12em; color: #96a6c2; }
+.flight-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: center; gap: 12px; }
+.power-panel { padding: 0 5px; } #power { font-size: 10px; color: #77e7e5; font-variant-numeric: tabular-nums; }
+#pulse { min-height: 44px; background: #c6b6ff; color: #1e1435; font-size: 10px; letter-spacing: .025em; border: 1px solid #d4c8ff; }
+#pulse:disabled { background: #161c32; color: #a89fc4; border-color: #34344e; cursor: default; }
+#pulse:not(:disabled):active { background: #eee7ff; }
+#pulse-hint { text-align: center; font-size: 9px; color: #a89fc4; margin: 4px 0 0; }
+#message { min-height: 32px; line-height: 16px; }
+@media (prefers-reduced-motion: reduce) { .combo-meter i { transition: none; } }
+@media (max-height: 700px) { .desk { gap: 8px; } .legend { display: none; } }
+@media (min-width: 600px) and (max-height: 550px) {
+  .desk { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto 1fr; column-gap: 16px !important; max-width: 900px !important; }
+  .arena { grid-column: 1; grid-row: 1 / 6; }
+  .masthead, .hud, .telemetry, .flight-controls, footer { grid-column: 2; }
+  footer { align-self: end; }
+  .flight-controls { grid-template-columns: 1fr; gap: 8px; }
+}
 @media (max-height: 550px) { .desk { gap: 6px; max-width: 720px; } .eyebrow, .badge, .legend { display: none; } h1 { font-size: 17px; } .hud { padding: 5px 12px; } .hud strong { font-size: 16px; } .label { font-size: 8px; } #instructions { font-size: 10px; } h2 { font-size: 22px; margin: 4px 0; } .result > p:not(.eyebrow) { margin: 4px 0 8px; } #final-score { font-size: 28px; margin: 0 0 8px; } }

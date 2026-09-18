@@ -4,14 +4,15 @@
 
 - **GitHub:** https://github.com/Cesardellantonio/orbit-courier
 - **Pages:** https://cesardellantonio.github.io/orbit-courier/
-- Branch `main` / root; public repo under Cesardellantonio
+- Branch `main` / root; public under Cesardellantonio
+
+## Versions
+
+- **v2** — aim power, combo, levels, slow-mo pulse, juice (Astra primary; Fable skipped — v2 solid)
+- v1 — dual-check Astra + Fable (see `DUAL-CHECK.md`)
 
 ## Local
 
 ```bash
 open "/Users/cd/Documents/Grok Bot Vault/Hermes Desk/projects/orbit-courier/index.html"
 ```
-
-## Dual-check
-
-See `DUAL-CHECK.md` (Astra gpt-6-astra → Fable claude-fable-5-thinking-high).
