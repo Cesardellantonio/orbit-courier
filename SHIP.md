@@ -3,38 +3,31 @@
 ## Local status
 
 - Playable on Mini disk under this folder.
-- Git: initialize locally (see below). **Do not push until `gh auth` works.**
+- Git: `main` @ `af4e807` (local only; no remote yet).
+- Dual-check complete (`DUAL-CHECK.md`). Tests: 4/4 pass.
 
-## Blocker (2026-09-18)
+## Auth status (re-checked 2026-09-18 ~14:11 PT)
 
 ```text
-gh auth status → Failed to log in to github.com account cdclaw (keyring)
-The token in keyring is invalid.
+gh auth status → Logged in to github.com account Cesardellantonio (keyring)
+Token scopes: gist, read:org, repo, workflow
 ```
 
-### Cesar fix
+Earlier `cdclaw` keyring token was invalid; active account is now **Cesardellantonio**.
 
-```bash
-gh auth login -h github.com
-# or: gh auth logout -h github.com -u cdclaw && gh auth login -h github.com
-gh auth status
-```
-
-## After auth works
+**Push/Pages:** held pending Chief confirm (per Chief FYI). When Chief says go:
 
 ```bash
 cd "/Users/cd/Documents/Grok Bot Vault/Hermes Desk/projects/orbit-courier"
-git status
-# create public repo (example name orbit-courier under Cesar's GitHub):
 gh repo create orbit-courier --public --source=. --remote=origin --push
-# Enable Pages: Settings → Pages → Deploy from branch `main` / root
-# or:
-gh api -X POST repos/{owner}/orbit-courier/pages -f build_type=legacy -f source='{"branch":"main","path":"/"}'
+# Then enable Pages from branch main / root (GitHub UI or gh api)
 ```
 
-Expected Pages URL (after owner/repo known): `https://<owner>.github.io/orbit-courier/`
+Expected Pages URL: `https://cesardellantonio.github.io/orbit-courier/` (confirm owner casing).
 
-## Do not
+## Cesar re-auth if needed
 
-- Push with invalid token
-- Flip Hermes default off gpt-6-astra
+```bash
+gh auth login -h github.com
+gh auth status
+```
